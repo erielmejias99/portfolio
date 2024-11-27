@@ -6,7 +6,7 @@ on:
 
 env:
   IMAGE_NAME: portfolio
-  IMAGE_TAG: ${{ gitub.event.release.tag_name }}
+  IMAGE_TAG: ${{ github.event.release.tag_name }}
   CLUSTER: portfolio
   SERVICE: portfolio-ui
   TASK_DEFINITION_FILE: './.aws/portfolio.json'
