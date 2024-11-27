@@ -1,0 +1,62 @@
+name: Build
+
+on:
+  release:
+    types: [ released ]
+
+env:
+  IMAGE_NAME: portfolio
+  IMAGE_TAG: ${{ gitub.event.release.tag_name }}
+  CLUSTER: portfolio
+  SERVICE: portfolio-ui
+  TASK_DEFINITION_FILE: './.aws/portfolio.json'
+  TASK_DEFINITION_FAMILY: 'portfolio'
+  TASK_DEFINITION_ARN: 'arn:aws:ecs:us-east-1:086200314546:task-definition/portfolio:1'
+
+jobs:
+  build-and-deploy:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          FULL_IMAGE_NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        run: |
+          echo $FULL_IMAGE_NAME
+          docker build -f ./Dockerfile -t $FULL_IMAGE_NAME .
+          docker push $FULL_IMAGE_NAME
+
+#      - name: Render task definition
+#        id: render-portfolio-ui-container
+#        uses: aws-actions/amazon-ecs-render-task-definition@v1
+#        env:
+#          FULL_IMAGE_NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+#        with:
+#          task-definition: ${{env.TASK_DEFINITION_FILE}}
+#          task-definition-arn: ${{env.TASK_DEFINITION_ARN}}
+#          task-definition-family: ${{env.TASK_DEFINITION_FAMILY}}
+#          container-name: portfolio-ui
+#          image: ${{env.FULL_IMAGE_NAME}}
+#          environment-variables: "LOG_LEVEL=info"
+#
+#      - name: Deploy task definition
+#        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+#        with:
+#          task-definition: ${{steps.render-portfolio-ui-container.outputs.task-definition}}
+#          service: ${{ env.SERVICE }}
+#          cluster: ${{ env.CLUSTER }}
+#          wait-for-service-stability: true

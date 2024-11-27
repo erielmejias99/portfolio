@@ -4,43 +4,43 @@ import { Typography } from "@material-tailwind/react";
 import {
   RectangleGroupIcon,
   FingerPrintIcon,
-  SwatchIcon,
+  CircleStackIcon,
+  CogIcon,
   HashtagIcon,
-  EyeIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/solid";
 import { SkillCard } from "@/components";
 
 const SKILLS = [
   {
+    icon: CogIcon,
+    title: "Backend Development",
+    children:
+      "Dedicated backend developer with 5+ of experience in building, optimizing, and maintaining server-side logic, databases, and APIs. Proficient in creating scalable and secure solutions for web and mobile applications using modern programming languages and frameworks. Passionate about improving system performance and delivering high-quality code.",
+  },
+  {
     icon: RectangleGroupIcon,
     title: "Frontend Web Development:",
     children:
-      "Creating beautiful and functional web experiences is my forte. Using the latest technologies and best practices, I design and build websites that captivate and engage users.",
+      "Creating beautiful and functional web experiences is my forte. Using the latest technologies and best practices, I design and build websites that captivate and engage users. Skilled in building responsive, accessible, and visually appealing designs using modern frontend frameworks and tools. Adept at translating complex requirements into intuitive user experiences while ensuring performance optimization.",
   },
   {
     icon: FingerPrintIcon,
     title: "Mobile App Development",
     children:
-      " I specialize in creating responsive and intuitive mobile apps that work seamlessly across iOS & Android devices. From concept to deployment, I handle every stage of the development process.",
-  },
-  {
-    icon: SwatchIcon,
-    title: "Technology Stack",
-    children:
-      "I'm well-versed in the industry's most popular frontend technologies, including HTML5, CSS3, JavaScript, and frameworks like React and React Native.",
+      " I specialize in creating responsive and intuitive mobile apps that work seamlessly across all Android devices. From concept to deployment, I handle every stage of the development process.",
   },
   {
     icon: HashtagIcon,
     title: " Web Optimization",
     children:
-      "Performance matters. I optimize websites and apps for speed, ensuring your users enjoy a fast and responsive experience, which in turn boosts user satisfaction and SEO rankings.",
+      "Results-driven web optimization specialist enhancing website performance, improving user experience, and boosting conversion rates. Proficient in analyzing website metrics, optimizing page speed, and implementing SEO best practices to achieve measurable results. Adept at collaborating with development and design teams to create efficient and user-friendly digital experiences.",
   },
   {
-    icon: EyeIcon,
-    title: "User-Centric Design",
+    icon: CircleStackIcon,
+    title: "Database",
     children:
-      "My development goes hand-in-hand with an eye for design. I create user interfaces that are not only functional but also aesthetically pleasing, providing a seamless and enjoyable user journey.",
+      "Experienced database specialist in designing, optimizing, and managing relational and non-relational databases. Skilled in ensuring data integrity, improving query performance, and implementing secure and scalable database architectures. Proficient in database administration, backup/recovery strategies, and integrating databases with application ecosystems.",
   },
   {
     icon: DocumentTextIcon,
