@@ -40,23 +40,23 @@ jobs:
           docker build -f ./Dockerfile -t $FULL_IMAGE_NAME .
           docker push $FULL_IMAGE_NAME
 
-#      - name: Render task definition
-#        id: render-portfolio-ui-container
-#        uses: aws-actions/amazon-ecs-render-task-definition@v1
-#        env:
-#          FULL_IMAGE_NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-#        with:
-#          task-definition: ${{env.TASK_DEFINITION_FILE}}
-#          task-definition-arn: ${{env.TASK_DEFINITION_ARN}}
-#          task-definition-family: ${{env.TASK_DEFINITION_FAMILY}}
-#          container-name: portfolio-ui
-#          image: ${{env.FULL_IMAGE_NAME}}
-#          environment-variables: "LOG_LEVEL=info"
-#
-#      - name: Deploy task definition
-#        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
-#        with:
-#          task-definition: ${{steps.render-portfolio-ui-container.outputs.task-definition}}
-#          service: ${{ env.SERVICE }}
-#          cluster: ${{ env.CLUSTER }}
-#          wait-for-service-stability: true
+      - name: Render task definition
+        id: render-portfolio-ui-container
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        env:
+          FULL_IMAGE_NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        with:
+          task-definition: ${{env.TASK_DEFINITION_FILE}}
+          task-definition-arn: ${{env.TASK_DEFINITION_ARN}}
+          task-definition-family: ${{env.TASK_DEFINITION_FAMILY}}
+          container-name: portfolio-ui
+          image: ${{env.FULL_IMAGE_NAME}}
+          environment-variables: "LOG_LEVEL=info"
+
+      - name: Deploy task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{steps.render-portfolio-ui-container.outputs.task-definition}}
+          service: ${{ env.SERVICE }}
+          cluster: ${{ env.CLUSTER }}
+          wait-for-service-stability: true
