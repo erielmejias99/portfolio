@@ -2,8 +2,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import {Layout, FixedPlugin, Navbar, Footer} from "@/components";
-import Head from "next/head";
+import {Layout, Navbar, Footer} from "@/components";
 import React from "react";
 
 const roboto = Roboto({
@@ -13,9 +12,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind Portfolio Page",
+  title: "Eriel Mejias | Software Engineer | Full-Stack Developer Portfolio",
   description:
-    "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+    "Eriel Mejias is a software engineer specializing in full-stack development, web optimization, and scalable backend solutions. Explore my portfolio and projects.",
 };
 
 export default function RootLayout({
@@ -27,7 +26,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
-        <title>Eriel Mejias | Software Engineer | Full-Stack Developer Portfolio</title>
         <meta name="description"
               content="Eriel Mejias is a software engineer specializing in full-stack development, web optimization, and scalable backend solutions. Explore my portfolio and projects."/>
         <meta name="keywords"
