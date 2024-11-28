@@ -1,5 +1,5 @@
-import { Typography, Button } from "@material-tailwind/react";
-import {RESUME_LINK} from "@/util/globals";
+import { Typography } from "@material-tailwind/react";
+import {GITHUB_LINK, LINKED_IN_LINK, RESUME_LINK} from "@/util/globals";
 
 const LINKS = [
   {
@@ -12,8 +12,13 @@ const LINKS = [
     target: "_blank",
   },
   {
-    href: 'http://',
+    href: LINKED_IN_LINK,
     label: "LinkedIn",
+    target: "_blank",
+  },
+  {
+    href: GITHUB_LINK,
+    label: "GitHub",
     target: "_blank",
   }
 ];

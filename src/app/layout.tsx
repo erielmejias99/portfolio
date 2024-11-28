@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import {Layout, FixedPlugin, Navbar, Footer} from "@/components";
+import Head from "next/head";
+import React from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -24,18 +26,36 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          defer
-          data-site="YOUR_DOMAIN_HERE"
-          src="https://api.nepcha.com/js/nepcha-analytics.js"
-        ></script>
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
+        <title>Eriel Mejias | Software Engineer | Full-Stack Developer Portfolio</title>
+        <meta name="description"
+              content="Eriel Mejias is a software engineer specializing in full-stack development, web optimization, and scalable backend solutions. Explore my portfolio and projects."/>
+        <meta name="keywords"
+              content="Software Engineer, Full-Stack Developer, Backend Developer, Frontend Developer, Portfolio, JavaScript, React, Node.js, Python"/>
+        <meta name="author" content="Eriel Mejias"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        {/* Open Graph (OG) Tags */}
+        <meta property="og:title" content="Eriel Mejias | Software Engineer Portfolio"/>
+        <meta property="og:description"
+              content="Explore Eriel Mejias's portfolio showcasing web development, scalable backend systems, and cutting-edge software engineering."/>
+        <meta property="og:image"
+              content="https://erielmejias.com/_next/image?url=%2Fimage%2Fhome_profile.jpeg&w=2048&q=75"/>
+        <meta property="og:url" content="https://erielmejias.com"/>
+        <meta property="og:type" content="website"/>
+
+        {/*  Tweeter/X card metadata */}
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Eriel Mejias | Software Engineer Portfolio"/>
+        <meta name="twitter:description"
+              content="Explore Eriel Mejias's software engineering portfolio, including web development, backend solutions, and optimization projects."/>
+        <meta name="twitter:image"
+              content="https://erielmejias.com/_next/image?url=%2Fimage%2Fhome_profile.jpeg&w=2048&q=75"/>
       </head>
       <body className={roboto.className}>
         <Layout>
           <Navbar />
-          {children}
-          {/*<FixedPlugin />*/}
+            {children}
+            {/*<FixedPlugin />*/}
           <Footer />
         </Layout>
 

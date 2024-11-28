@@ -4,15 +4,10 @@ import {
   Typography,
   Card,
   CardBody,
-  Radio,
-  Input,
-  Textarea,
-  Button,
   IconButton,
 } from "@material-tailwind/react";
-import { EnvelopeIcon, PhoneIcon, TicketIcon } from "@heroicons/react/24/solid";
+import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import {MapPinIcon} from "@heroicons/react/20/solid";
-import Image from "next/image";
 
 export function ContactForm() {
   return (
@@ -38,8 +33,7 @@ export function ContactForm() {
               </Typography>
               <Typography
                 variant="lead"
-                className="mx-auto mb-8 text-base !text-gray-500"
-              >
+                className="mx-auto mb-8 text-base !text-gray-500">
                 Preferred way Text Message/Email.
               </Typography>
               <div className="flex gap-5">
