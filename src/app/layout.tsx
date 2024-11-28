@@ -39,7 +39,7 @@ export default function RootLayout({
         <meta property="og:description"
               content="Explore Eriel Mejias's portfolio showcasing web development, scalable backend systems, and cutting-edge software engineering."/>
         <meta property="og:image"
-              content="https://erielmejias.com/_next/image?url=%2Fimage%2Fhome_profile.jpeg&w=2048&q=75"/>
+              content="https://erielmejias.com/image/home_profile.jpeg"/>
         <meta property="og:url" content="https://erielmejias.com"/>
         <meta property="og:type" content="website"/>
 
@@ -49,7 +49,7 @@ export default function RootLayout({
         <meta name="twitter:description"
               content="Explore Eriel Mejias's software engineering portfolio, including web development, backend solutions, and optimization projects."/>
         <meta name="twitter:image"
-              content="https://erielmejias.com/_next/image?url=%2Fimage%2Fhome_profile.jpeg&w=2048&q=75"/>
+              content="https://erielmejias.com/image/home_profile.jpeg"/>
       </head>
       <body className={roboto.className}>
         <Layout>
