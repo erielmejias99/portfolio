@@ -57,7 +57,7 @@ export function Skills() {
         <Typography color="blue-gray" className="mb-2 font-bold uppercase">
           my skills
         </Typography>
-        <Typography variant="h1" color="blue-gray" className="mb-4">
+        <Typography variant="h2" color="blue-gray" className="mb-4">
           What I do
         </Typography>
         <Typography
