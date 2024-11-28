@@ -8,10 +8,10 @@ env:
   IMAGE_NAME: portfolio
   IMAGE_TAG: ${{ github.event.release.tag_name }}
   CLUSTER: portfolio
-  SERVICE: portfolio-ui
+  SERVICE: ui
   TASK_DEFINITION_FILE: './.aws/portfolio.json'
   TASK_DEFINITION_FAMILY: 'portfolio'
-  TASK_DEFINITION_ARN: 'arn:aws:ecs:us-east-1:086200314546:task-definition/portfolio:1'
+  TASK_DEFINITION_ARN: 'arn:aws:ecs:us-east-1:086200314546:task-definition/portfolio:4'
 
 jobs:
   build-and-deploy:
