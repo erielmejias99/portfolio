@@ -85,14 +85,14 @@ export function Navbar() {
         <div className="hidden items-center gap-2 lg:flex">
           <a href={LINKED_IN_LINK}  target="_blank" rel="noopener noreferrer">
             <img
-              className="h-8 w-full object-cover object-center"
+              className="h-8 object-cover object-center"
               src="/logos/linkedin.png"
               alt="LinkedIn Logo"
             />
           </a>
           <a href={'https://github.com/erielmejias99'} target="_blank" rel="noopener noreferrer">
             <img
-              className="h-9 w-full object-cover object-center"
+              className="h-9 object-cover object-center"
               src="/logos/github.webp"
               alt="GitHub Logo"
             />
@@ -121,11 +121,16 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
-          <div className="mt-6 mb-4 flex items-center gap-2">
+          <div className="mt-6 mb-4 flex items-center gap-2" style={{cursor: 'pointer'}}>
             <img
-              className="h-20 w-full object-cover object-center"
+              className="h-9 object-center"
               src="/logos/linkedin.png"
               alt="LinkedIn Logo"
+            />
+            <img
+              className="h-9 object-cover object-center"
+              src="/logos/github.webp"
+              alt="GitHub Logo"
             />
           </div>
         </div>
