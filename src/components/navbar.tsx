@@ -2,15 +2,11 @@ import React from "react";
 import {
   Navbar as MTNavbar,
   Collapse,
-  Button,
   IconButton,
-  Typography, Avatar,
+  Typography,
 } from "@material-tailwind/react";
 import {
   RectangleStackIcon,
-  UserCircleIcon,
-  CommandLineIcon,
-  Squares2X2Icon,
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
@@ -23,9 +19,15 @@ const NAV_MENU = [
     icon: RectangleStackIcon,
   },
   {
-    name: "Resume/CV",
+    name: "Resume",
     icon: DocumentIcon,
     href: RESUME_LINK,
+    target: "_blank",
+  },
+  {
+    name: "Certificates",
+    icon: DocumentIcon,
+    href: '/certificates',
   },
   // {
   //   name: "Docs",
@@ -37,15 +39,16 @@ const NAV_MENU = [
 interface NavItemProps {
   children: React.ReactNode;
   href?: string;
+  target?: string;
 }
 
-function NavItem({ children, href }: NavItemProps) {
+function NavItem({ children, href, target }: NavItemProps) {
   return (
     <li>
       <Typography
         as="a"
-        href={href || "#"}
-        target={href ? "_blank" : "_self"}
+        href={href || "/"}
+        target={target ?? "_self"}
         variant="paragraph"
         color="gray"
         className="flex items-center gap-2 font-medium text-gray-900"
@@ -114,8 +117,8 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon }) => (
-              <NavItem key={name}>
+            {NAV_MENU.map(({ name, icon: Icon, href }) => (
+              <NavItem key={name} href={href}>
                 <Icon className="h-5 w-5" />
                 {name}
               </NavItem>
