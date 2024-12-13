@@ -20,7 +20,7 @@ function Hero() {
             variant="lead"
             className="mb-4 !text-gray-500 md:pr-16 xl:pr-28"
           >
-            I am a full-stack software engineer with a keen interest in learning new skills.
+            I am a full-stack Software Developer Engineer with a keen interest in learning new skills.
             As a competitive programmer, I focus on enhancing my logical thinking by solving complex problems.
             I am passionate about algorithms and software development, which makes me well-suited for building
             efficient and scalable systems while prioritizing the best programming practices.
@@ -56,7 +56,7 @@ function Hero() {
           width={1024}
           height={1024}
           alt="team work"
-          src="/image/home_profile.jpeg"
+          src="https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/seo/home_profile.jpeg"
           className="h-[36rem] w-full rounded-xl object-cover"
         />
       </div>

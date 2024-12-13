@@ -7,9 +7,9 @@ interface CertificateProps {
 }
 export function Certificate(props: CertificateProps) {
 	return 	<Card className="mt-6">
-		<CardHeader color="blue-gray" className="relative h-56">
+		<CardHeader color="blue-gray" className="relative h-47">
 			<img
-				className="object-cover object-center"
+				className="w-full h-full object-cover"
 				src={props.image}
 				alt={props.title}
 			/>

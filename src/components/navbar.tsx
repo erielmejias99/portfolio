@@ -8,25 +8,26 @@ import {
 import {
   RectangleStackIcon,
   XMarkIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/solid";
-import {LINKED_IN_LINK, RESUME_LINK} from "@/util/globals";
-import {DocumentIcon} from "@heroicons/react/20/solid";
+  Bars3Icon, AcademicCapIcon,
+} from "@heroicons/react/24/outline";
+import {LINKED_IN_LINK} from "@/util/globals";
+import Link from "next/link";
 
 const NAV_MENU = [
   {
     name: "Home",
     icon: RectangleStackIcon,
+    href: '/'
   },
-  {
-    name: "Resume",
-    icon: DocumentIcon,
-    href: RESUME_LINK,
-    target: "_blank",
-  },
+  // {
+  //   name: "Resume",
+  //   icon: DocumentIcon,
+  //   href: RESUME_LINK,
+  //   target: "_blank",
+  // },
   {
     name: "Certificates",
-    icon: DocumentIcon,
+    icon: AcademicCapIcon,
     href: '/certificates',
   },
   // {
@@ -45,16 +46,15 @@ interface NavItemProps {
 function NavItem({ children, href, target }: NavItemProps) {
   return (
     <li>
-      <Typography
-        as="a"
-        href={href || "/"}
-        target={target ?? "_self"}
-        variant="paragraph"
-        color="gray"
-        className="flex items-center gap-2 font-medium text-gray-900"
-      >
-        {children}
-      </Typography>
+      <Link href={href}>
+        <Typography
+          variant="paragraph"
+          color="gray"
+          className="flex items-center gap-2 font-medium text-gray-900"
+        >
+          {children}
+        </Typography>
+      </Link>
     </li>
   );
 }
