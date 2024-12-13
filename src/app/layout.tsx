@@ -5,6 +5,7 @@ import { Roboto } from "next/font/google";
 import {Layout, Navbar, Footer} from "@/components";
 import React from "react";
 import {CloudWatchRUMInitializer} from "@/components/CloudWatchRUMInitializer";
+import PageViewTracker from "@/components/PageViewTracker";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
         <Layout>
           <Navbar />
             <CloudWatchRUMInitializer />
+            <PageViewTracker />
             {children}
             {/*<FixedPlugin />*/}
           <Footer />

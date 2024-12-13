@@ -8,7 +8,7 @@ export function CloudWatchRUMInitializer() {
 
 		try {
 			const config: AwsRumConfig = {
-				sessionSampleRate: 0.2,
+				sessionSampleRate: 1.0,
 				identityPoolId: "us-east-1:f8b6c5a4-8c4c-4409-9911-a2ea6c8bbb48",
 				endpoint: "https://dataplane.rum.us-east-1.amazonaws.com",
 				telemetries: ["performance","errors","http"],
