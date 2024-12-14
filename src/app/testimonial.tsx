@@ -1,16 +1,54 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { Typography, Card, CardBody, Avatar } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
+import {TestimonialCard} from "@/components/TestimonialCard";
+
+const testimonials = [
+  {
+    avatar: 'https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/testimonial/scott-rogers.jpeg',
+    name: 'Scott Rogers',
+    subtitle: 'IT Director at Stinger Solutions',
+    content: 'Just getting a chance to read thru this in detail and really appreciate all the effort here and efficiency and cost saving! Thanks Eriel and team...',
+    contact: 'scottrogers@stingersolutions.com',
+  },
+  {
+    avatar: 'https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/testimonial/jay-prakash.jpeg',
+    name: 'Jay Prakash Mishra',
+    subtitle: 'Software Developer Engineer at Undostres',
+    content: 'I couldn’t have asked for a better lead than Eriel. He is one of the most dedicated professionals I’ve worked with and is willing to put that extra help whenever you need it. His expertise as a developer is considerable, and it helped me always to come up with more efficient solutions on different projects. I highly recommend Eriel and would love to work with him again.',
+    contact: 'jaypmishra030@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/jpmishra000/'
+  },
+  {
+    avatar: 'https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/testimonial/surya-pratap.jpeg',
+    name: 'Surya Pratap Singh',
+    subtitle: 'Senior Software Engineer @UnDosTres',
+    content: 'You are one of the most hardworking person I have known. It feels good to know you and be a small part of your journey. More growth to you.',
+    contact: 'surya.singh15071999@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/suryapts07/'
+  },
+  {
+    avatar: 'https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/testimonial/shrawan-sah.jpeg',
+    name: 'Shrawan Sah',
+    subtitle: 'Member Of Technical Staff at Salesforce (SDE 2) | UnDosTres(Mexico) | MNNIT',
+    content: 'Great work Eriel Mejias Rodriguez !! congrats.',
+    contact: 'surya.singh15071999@gmail.com',
+  },
+  {
+    avatar: 'https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/testimonial/no-image.webp',
+    name: 'Justin Murphy',
+    subtitle: 'IT Lead at Stinger Solutions',
+    content: 'Eriel I think I speak for everyone that we are glade to have you here.',
+    contact: 'jmurphy@stingersolutions.com',
+  },
+];
 
 export function Testimonial() {
-  const [active, setActive] = React.useState(3);
-
   return (
     <section className="py-12 px-8 lg:py-24">
-      <div className="container max-w-screen-lg mx-auto">
-        <div className="container mx-auto mb-20 text-center">
+      <div className="container mx-auto mb-20 text-center">
+        <div className="text-center">
           <Typography variant="h2" color="blue-gray" className="mb-4">
             What Clients Say
           </Typography>
@@ -22,76 +60,19 @@ export function Testimonial() {
             with me. My client&apos;s satisfaction is my greatest achievement!
           </Typography>
         </div>
-        <Card color="transparent" shadow={false} className="py-8 lg:flex-row">
-          <CardBody className="w-full lg:gap-10 h-full lg:!flex justify-between ">
-            <div className="w-full mb-10 lg:mb-0">
-              <Typography
-                variant="h3"
-                color="blue-gray"
-                className="mb-4 font-bold lg:max-w-xs"
-              >
-                Mobile App Development
-              </Typography>
-              <Typography className="mb-3 w-full lg:w-8/12 font-normal !text-gray-500">
-                I had the pleasure of working with Lily on a critical web
-                development project, and I can confidently say that their
-                expertise and professionalism exceeded my expectations.
-              </Typography>
-              <Typography variant="h6" color="blue-gray" className="mb-0.5">
-                Michael - Technical Manager
-              </Typography>
-              <Typography
-                variant="small"
-                className="font-normal mb-5 !text-gray-500"
-              >
-                Marketing @ APPLE INC.
-              </Typography>
-              <div className="flex items-center gap-4">
-                <Avatar
-                  variant="rounded"
-                  src="/image/avatar1.jpg"
-                  alt="spotify"
-                  size="sm"
-                  className={`cursor-pointer ${
-                    active === 1 ? "opacity-100" : "opacity-50"
-                  }`}
-                  onClick={() => setActive(1)}
-                />
-                <div className="w-[1px] h-[36px] bg-blue-gray-100 "></div>
-                <Avatar
-                  variant="rounded"
-                  src="/image/avatar2.jpg"
-                  alt="spotify"
-                  size="sm"
-                  className={`cursor-pointer ${
-                    active === 2 ? "opacity-100" : "opacity-50"
-                  }`}
-                  onClick={() => setActive(2)}
-                />
-                <div className="w-[1px] h-[36px] bg-blue-gray-100" />
-                <Avatar
-                  variant="rounded"
-                  src="/image/avatar3.jpg"
-                  alt="spotify"
-                  size="sm"
-                  className={`cursor-pointer ${
-                    active === 3 ? "opacity-100" : "opacity-50"
-                  }`}
-                  onClick={() => setActive(3)}
-                />
-              </div>
-            </div>
-            <div className="h-[21rem] rounded-lg w-full sm:w-[18rem] shrink-0">
-              <Image
-                width={768}
-                height={768}
-                alt="testimonial image"
-                src={`/image/avatar${active}.jpg`}
-                className="h-full rounded-lg w-full object-cover"
+        <div className="container mx-auto max-w-screen-xlg p-4">
+          <div className="px-5 grid gap-9 grid-cols-1 md:grid-cols-3 xl:grid-cols-3">
+            {testimonials.map((testimonial, idx) => (
+              <TestimonialCard
+                key={idx}
+                avatar={testimonial.avatar}
+                name={testimonial.name}
+                content={testimonial.content}
+                subtitle={testimonial.subtitle}
               />
-            </div>
-          </CardBody>
-        </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
