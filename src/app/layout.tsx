@@ -6,6 +6,7 @@ import {Layout, Navbar, Footer} from "@/components";
 import React from "react";
 import {CloudWatchRUMInitializer} from "@/components/CloudWatchRUMInitializer";
 import PageViewTracker from "@/components/PageViewTracker";
+import {HomeParticles} from "@/components/HomeParticles";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -55,10 +56,11 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Layout>
           <Navbar />
-            <CloudWatchRUMInitializer />
-            <PageViewTracker />
-            {children}
-            {/*<FixedPlugin />*/}
+          <CloudWatchRUMInitializer />
+          <PageViewTracker />
+          <HomeParticles />
+          {children}
+          {/*<FixedPlugin />*/}
           <Footer />
         </Layout>
 
