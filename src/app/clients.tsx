@@ -5,6 +5,11 @@ import { Typography } from "@material-tailwind/react";
 
 const CLIENTS = [
   {
+    site: 'https://skyhoptechnologies.com/',
+    logo: 'https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/clients/skyhop-tech-logo.png',
+    background: '#113B71'
+  },
+  {
     site: 'https://stingersolutions.com/',
     logo: 'https://erielmejias-portfolio.s3.us-east-1.amazonaws.com/clients/stinger-solutions.png'
   },
@@ -27,14 +32,21 @@ export function Clients() {
         </Typography>
         <div className="flex flex-wrap items-center justify-center gap-8">
           {CLIENTS.map((client, key) => (
-            <Image
+            <a
+              style={{padding: 10, background: client.background ?? 'white', borderRadius: 10 }}
+              href={client.site}
+              target="_blank"
+              rel="noreferrer"
               key={key}
-              alt={client.site}
-              width={768}
-              height={768}
-              className="w-40"
-              src={client.logo}
-            />
+            >
+                <Image
+                  alt={client.site}
+                  width={768}
+                  height={768}
+                  className="w-40"
+                  src={client.logo}
+                />
+            </a>
           ))}
         </div>
       </div>
