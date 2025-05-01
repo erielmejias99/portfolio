@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
+        <link rel="shortcut icon" href="/apple-touch-icon.png" type="image/png"/>
         <meta name="description"
               content="Eriel Mejias is a Software Developer Engineer specializing in full-stack development, web optimization, and scalable backend solutions. Explore my portfolio and projects."/>
         <meta name="keywords"
